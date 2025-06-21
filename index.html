@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Christian Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Common Styles */
+    section {
+      padding: 80px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: #000;
+    }
+
+    .container {
+      background: #111;
+      border-radius: 20px;
+      box-shadow: 0 15px 45px rgba(255, 255, 255, 0.05);
+      padding: 40px 60px;
+      max-width: 1000px;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-left .name {
+      font-size: 36px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .first-letter {
+      color: #4361ee;
+      font-weight: 900;
+      font-size: 40px;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-right a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .nav-right a:hover {
+      color: #4361ee;
+    }
+
+    /* Home Section */
+    .home-content {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .text-content {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .highlight {
+      color: #4361ee;
+    }
+
+    .cta {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+
+    .image-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blob {
+      width: 300px;
+      height: 300px;
+      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+      background: #4361ee;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blob img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* About Section */
+    .about-card {
+      position: relative;
+      background: rgba(26, 26, 26, 0.8);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      backdrop-filter: blur(5px);
+      overflow: hidden;
+    }
+
+    .about-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .about-text h1 {
+      font-size: 32px;
+      color: #4361ee;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .subsection h2 {
+      font-size: 20px;
+      color: white;
+      margin: 18px 0 8px;
+    }
+
+    .subsection ul {
+      padding-left: 0;
+      list-style-position: inside;
+      text-align: center;
+    }
+
+    .subsection ul li {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #ddd;
+    }
+
+    /* Services Section */
+    .section-title {
+      font-size: 32px;
+      color: #4361ee;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1 1 30%;
+      background: #1a1a1a;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(255,255,255,0.05);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+    }
+
+    .card i {
+      font-size: 36px;
+      color: #4361ee;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .my-work {
+      margin-top: 60px;
+    }
+
+    .my-work h2 {
+      font-size: 26px;
+      color: #4361ee;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .work-cards {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      scroll-behavior: smooth;
+    }
+
+    .work-card {
+      flex: 0 0 300px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(255,255,255,0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .work-card-content {
+      padding: 20px;
+    }
+
+    .work-card-content h3 {
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .work-card-content p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 60px 0;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .contact-item i {
+      color: whitesmoke;
+      font-size: 24px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #4361ee;
+    }
+
+    .btn {
+      background-color: #4361ee;
+      color: #fff;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px 5px 0;
+    }
+
+    .btn:hover {
+      background-color: #3149c5;
+    }
+
+    /* Hire Me Form Styles */
+    .hire-form {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      margin-top: 20px;
+      background: rgba(26, 26, 26, 0.8);
+      padding: 30px;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hire-form.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #222;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .btn-secondary {
+      background-color: #666;
+    }
+
+    .btn-secondary:hover {
+      background-color: #555;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      color: #4CAF50;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    /* Phone Link */
+    .phone-link {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .phone-link:hover {
+      color: #4361ee;
+    }
+
+    /* Mobile Menu Styles */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .home-content {
+        flex-direction: column;
+      }
+      
+      .image-wrapper {
+        margin-top: 30px;
+      }
+      
+      .cards {
+        flex-direction: column;
+      }
+      
+      nav {
+        padding: 15px 5%;
+      }
+      
+      .menu-toggle {
+        display: block;
+        z-index: 1001;
+      }
+      
+      .nav-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: #111;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+      }
+      
+      .nav-right.active {
+        right: 0;
+      }
+      
+      /* Add overlay when menu is open */
+      body.menu-open::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+      }
+
+      .container {
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .section-title, .my-work h2 {
+        font-size: 28px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+      }
+      
+      .nav-left .name {
+        font-size: 28px;
+      }
+      
+      .first-letter {
+        font-size: 32px;
+      }
+      
+      .nav-right {
+        gap: 10px;
+        font-size: 14px;
+      }
+
+      .about-card {
+        padding: 25px;
+      }
+
+      .contact-item {
+        font-size: 16px;
+      }
+
+      .social-icons {
+        gap: 20px;
+      }
+
+      .hire-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-left">
+      <span class="name"><span class="first-letter">C</span>hristian</span>
+    </div>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-right" id="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <div class="container">
+      <div class="home-content">
+        <div class="text-content">
+          <p class="subtitle">Software Engineer</p>
+          <h1>Hi,<br/>I'm <span class="highlight">Christian</span><br/>From Rwanda</h1>
+          <p class="cta">
+            Let's turn your ideas into polished, pixel-perfect products. Get in touch to start your next project.
+          </p>
+        </div>
+        <div class="image-wrapper">
+          <div class="blob">
+            <img src="images/aboume.jpeg" alt="Profile"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="about-card">
+        <img src="images/dev.jpg" alt="Development background" class="about-bg">
+        <div class="about-text">
+          <h1>About Me</h1>
+          <p>
+            I'm Christian, a Software Engineer and Web Designer from Rwanda. I enjoy crafting clean, responsive websites and apps that solve real-world problems. I specialize in both frontend and backend development.
+          </p>
+          <div class="subsection">
+            <h2>Skills</h2>
+            <ul>
+              <li>HTML, CSS, JavaScript</li>
+              <li>React, Flutter</li>
+              <li>Spring Boot, Java</li>
+              <li>Firebase, SQLite</li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h2>Experience</h2>
+            <ul>
+              <li>Web Developer Intern – Local Startup</li>
+              <li>Flutter Mobile App Projects (Personal)</li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h2>Education</h2>
+            <ul>
+              <li>Bachelor's in Software Engineering – Adventist University of Central Africa(AUCA)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h1 class="section-title">My Services</h1>
+      <div class="cards">
+        <div class="card">
+          <i class="fas fa-code"></i>
+          <h2>Software Development</h2>
+          <p>I design and build robust, scalable software systems tailored to your business needs, from simple tools to complex enterprise applications.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-palette"></i>
+          <h2>UI/UX Design</h2>
+          <p>I create user-centered interfaces that are visually appealing and easy to use, ensuring a seamless and intuitive digital experience.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-mobile-alt"></i>
+          <h2>App Design</h2>
+          <p>I design mobile applications with performance and usability in mind, blending aesthetics with functionality for Android and iOS platforms.</p>
+        </div>
+      </div>
+
+      <div class="my-work">
+        <h2>My Work</h2>
+        <div class="work-cards">
+          <div class="work-card">
+            <img src="images/clinic.avif" alt="Clinic Management System" />
+            <div class="work-card-content">
+              <h3>Clinic Management System</h3>
+              <p>A system to manage patients, appointments, and records efficiently in clinics and small hospitals.</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <img src="images/freelancer1.jpg" alt="Freelance Portfolio Site" />
+            <div class="work-card-content">
+              <h3>Freelancer Portfolio</h3>
+              <p>A modern, responsive portfolio website for showcasing freelance services and past work elegantly.</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <img src="images/real-estate.webp" alt="Real Estate App" />
+            <div class="work-card-content">
+              <h3>Real Estate App</h3>
+              <p>A property listing mobile app with search, filters, and map integration for buyers and agents.</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <img src="images/media.jpg" alt="Media Platform" />
+            <div class="work-card-content">
+              <h3>Media Platform</h3>
+              <p>A media-sharing app for audio, video, and articles with user interaction and social features.</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <img src="images/e-commerce.webp" alt="E-Commerce Platform" />
+            <div class="work-card-content">
+              <h3>E-Commerce Platform</h3>
+              <p>A full-featured shopping platform including cart, checkout, payments, and user dashboard.</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <img src="images/music.webp" alt="Music App" />
+            <div class="work-card-content">
+              <h3>Music App</h3>
+              <p>A sleek music streaming app for playlists, audio playback, and artist profiles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with Hire Me Form -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-container">
+        <div class="contact-section">
+          <h2 style="color: #4361ee;">Contact Us</h2>
+          <div class="contact-items">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>hirwac69@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+250783655163" class="phone-link">+250 783 655 163</a>
+            </div>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/share/19ddmw5ANr/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com/hirwachristian/oracle-sql-tests" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/__chriss.560?igsh=bndkanVuM2R4OTc2" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/christian-hirwa-686579329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <button class="btn" id="downloadCvBtn">Download CV</button>
+          <button class="btn" id="hireMeBtn">Hire Me</button>
+          
+          
+          <form action="https://formsubmit.co/hirwac69@gmail.com" method="POST" class="hire-form" id="hireForm">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input type="text" id="fullname" name="name" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" required placeholder="Tell me about your project"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary" id="cancelHire">Cancel</button>
+              <button type="submit" class="btn" id="submitHire">Submit</button>
+            </div>
+            <div class="success-message" id="successMessage">
+              Message sent successfully! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(17, 17, 17, 0.95)';
+        nav.style.padding = '15px 5%';
+        nav.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+      } else {
+        nav.style.background = '#111';
+        nav.style.padding = '20px 5%';
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    mobileMenu.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+      
+      
+      const icon = this.querySelector('i');
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Close menu when clicking on a nav link
+    document.querySelectorAll('#nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          mobileMenu.querySelector('i').classList.remove('fa-times');
+          mobileMenu.querySelector('i').classList.add('fa-bars');
+        }
+      });
+    });
+
+    // CV Download Functionality
+    document.getElementById('downloadCvBtn').addEventListener('click', function() {
+      const cvUrl = 'files/Christian_CV.pdf';
+      const link = document.createElement('a');
+      link.href = cvUrl;
+      link.download = 'Christian_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(function() {
+        window.location.href = cvUrl;
+      }, 500);
+    });
+
+    // Hire Me 
+    const hireMeBtn = document.getElementById('hireMeBtn');
+    const hireForm = document.getElementById('hireForm');
+    const cancelHire = document.getElementById('cancelHire');
+    const submitHire = document.getElementById('submitHire');
+    const fullnameInput = document.getElementById('fullname');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const successMessage = document.getElementById('successMessage');
+
+    // Toggle menu
+    hireMeBtn.addEventListener('click', () => {
+      hireForm.classList.add('active');
+      hireMeBtn.style.display = 'none';
+      successMessage.style.display = 'none';
+    });
+
+
+    cancelHire.addEventListener('click', () => {
+      hireForm.classList.remove('active');
+      hireMeBtn.style.display = 'inline-block';
+      fullnameInput.value = '';
+      emailInput.value = '';
+      messageInput.value = '';
+      successMessage.style.display = 'none';
+    });
+
+
+    // Email validation
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    
+    // Form submission handling
+    hireForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const fullname = fullnameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+      
+      // Validate inputs
+      if (!fullname || !email || !message) {
+        alert('Please fill in all fields');
+        return;
+      }
+      
+      if (!validateEmail(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+
+      // Show success message immediately
+      successMessage.style.display = 'block';
+      fullnameInput.value = '';
+      emailInput.value = '';
+      messageInput.value = '';
+      this.submit();
+      
+      // Hide form after 3 seconds
+      setTimeout(() => {
+        hireForm.classList.remove('active');
+        hireMeBtn.style.display = 'inline-block';
+        successMessage.style.display = 'none';
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
