@@ -19,15 +19,19 @@ My Work - Projects I've built
 Contact - Let's work together!
 
 ### 🏠 Home Page
+
 ![Home Page](https://github.com/hirwachristian/portfolio/blob/master/Home.png)
 
 ### 👨‍💻 About Me
+
 ![About Me](https://github.com/hirwachristian/portfolio/blob/master/About%20me.png)
 
 ### 💼 My Services
+
 ![My Services](https://github.com/hirwachristian/portfolio/blob/master/My%20services.png)
 
 ### 📞 Contact Page
+
 ![Contact Page](https://github.com/hirwachristian/portfolio/blob/master/Contact%20us.png)
 
 
