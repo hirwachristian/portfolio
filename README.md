@@ -1,38 +1,40 @@
 # Christian's Portfolio 👨‍💻
 Welcome to my professional portfolio website! I'm Christian, a passionate Software Engineer and Web Designer from Rwanda. This portfolio showcases my skills, projects, and services in the tech world.
 
-# 🌟 What You'll Find Here
+#  What You'll Find Here
 A Modern & Responsive Design - Clean, dark-themed website that looks great on all devices
 My Professional Journey - From education to skills and experience
 Project Showcase - Real projects I've worked on, including my Clinic Management System
 Easy Contact Options - Multiple ways to get in touch with me
 
-# 🚀 Quick Navigation
-Home - Introduction and who I am
+# Quick Navigation
 
-About Me - My background, skills, and education
-
-Services - What I can help you with
-
-My Work - Projects I've built
-
-Contact - Let's work together!
-
-### 🏠 Home Page
+###  Home Page
 
 ![Home Page](https://github.com/hirwachristian/portfolio/blob/master/Home.png)
 
-### 👨‍💻 About Me
+###  About Me
 
 ![About Me](https://github.com/hirwachristian/portfolio/blob/master/About%20me.png)
 
-### 💼 My Services
+###  My Services
 
 ![My Services](https://github.com/hirwachristian/portfolio/blob/master/My%20services.png)
 
-### 📞 Contact Page
+###  Contact Page
 
 ![Contact Page](https://github.com/hirwachristian/portfolio/blob/master/Contact%20us.png)
+
+# Interactive Components
+Mobile-friendly hamburger menu
+
+Form validation and submission
+
+Success message display
+
+Smooth section transitions
+
+Clickable project cards
 
 
 ## Technologies Used
